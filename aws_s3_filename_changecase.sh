@@ -6,7 +6,7 @@
  # this file. If not, please write to: cherankrish@gmail.com
  #
 
-bucket=webshots-new-2; #Bucket name
+bucket=my-bucket-name; #Bucket name
 list=$(aws s3api list-objects --bucket $bucket --query 'Contents[].{Key: Key}');
 newList=$(echo "${list}" | jq '.[] | .Key' | tr -d \");
 for line in $newList
