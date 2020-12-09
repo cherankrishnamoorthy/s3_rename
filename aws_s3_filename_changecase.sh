@@ -1,4 +1,12 @@
-bucket=webshots-new-2;
+ # Copyright (C) 2020 Cheran Krishnamnoorthy - All Rights Reserved
+ # You may use, distribute and modify this code under the
+ # terms of the MIT license.
+ #
+ # You should have received a copy of the license with
+ # this file. If not, please write to: cherankrish@gmail.com
+ #
+
+bucket=webshots-new-2; #Bucket name
 list=$(aws s3api list-objects --bucket $bucket --query 'Contents[].{Key: Key}');
 newList=$(echo "${list}" | jq '.[] | .Key' | tr -d \");
 for line in $newList
